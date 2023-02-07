@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        color: black;
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 36px;
+      }
+      #circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: white;
+        position: absolute;
+      }
+      #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      input[type="number"] {
+        margin: 10px 0;
+        padding: 5px;
+        font-size: 18px;
+        width: 50px;
+        text-align: center;
+      }
+      .color-palette {
+        display: flex;
+        margin: 10px 0;
+      }
+      .color-palette > div {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: 18px;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+      <h1>Ball Game</h1>
+      <label>Speed: <input type="number" id="speedInput"></label>
+      <div class="color-palette">
+        <div class="color" id="red" style="background-color: red;"></div>
+        <div class="color" id="green" style="background-color: green;"></div>
+        <div class="color" id="blue" style="background-color: blue;"></div>
+        <div class="color" id="yellow" style="background-color: yellow;"></div>
+      </div>
+      <button id="startButton">Start</button>
+    </div>
+    <div id="circle"></div>
+    <script>
+      const circle = document.querySelector("#circle");
+      const controls = document.querySelector("#controls");
+      const speedInput = document.querySelector("#speedInput");
+      const startButton = document.querySelector("#startButton");
+      const colorPalette = document.querySelectorAll(".color");
+      let speed = 1;
+      let color = "white";
+      let x = 0;
+      let y = 0;
+      let dx = speed;
+      let dy = speed;
+
+      startButton.addEventListener("click", start);
+
+      colorPalette.forEach(function(element) {
+        element.addEventListener("click", function() {
+          color = window.getComputedStyle(element).backgroundColor;
+          circle.style.backgroundColor = color;
+        });
+      });
+
+      function start() {
+        controls.style.display = "none";
+        speed = parseInt(speedInput.value) || 1;
+        dx = speed;
+        dy = speed;
+        animate();
+      }
+
+      function animate() {
+        x += dx;
+        y += dy;
+
+        if (x + 50 > window.innerWidth || x < 0) {
+          dx = -dx;
+        }
+
+        if (y + 50 > window.innerHeight || y < 0) {
+          dy = -dy;
+        }
+
+        circle.style.left = x + "px";
+        circle.style.top = y + "px";
+
+        requestAnimationFrame(animate);
+      }
+    </script>
+  </body>
+</html>
