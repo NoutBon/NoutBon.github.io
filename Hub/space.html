@@ -34,7 +34,7 @@
       #caption {
         position: absolute;
         margin-top: 0.5rem;
-        left: 366px;
+        left: 224px;
         top: 240px;
         transform: translateX(-50%);
         font-size: 1.150rem;
@@ -50,21 +50,113 @@
           fill: #000;
            transition: fill 0.5s ease;
          }
+       
 
 
+          .clock {
+            border-radius: .5rem;
+             padding: 0.75rem;
+             font-size: 15px;
+             color: #ffffff;
+            position: absolute;
+            left: 212px;
+             top: 334px;
+             font-weight: 400;
+           opacity: 0;
+           transform: translateY(30px); /* Move element down 30px */
+            animation: pop-in 0.5s ease forwards; /* Use "pop-in" animation, and keep final state */
+            }
+
+             @keyframes pop-in {
+             from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+            to {
+             opacity: 1;
+               transform: translateY(0);
+             }
+          }
 		.svg {
+            
 			position: absolute;
-			left: 236px;
-             top: 320px;
+			left: 212px;
+             top: 289px;
 			transform: translate(-50%, -50%);
+            opacity: 0; 
+           transform: translateY(30px); 
+            animation: pop-in 0.8s ease forwards; 
+            }
+
+             @keyframes pop-in {
+             from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+            to {
+             opacity: 1;
+               transform: translateY(0);
+             }
 			
 		}
+        .flex { display: flex; }
+        .svg2 {
+            
+			position: absolute;
+			left: 271px;
+             top: 304px;
+			transform: translate(-50%, -50%);
+            opacity: 0; /* Start with element invisible */
+           transform: translateY(30px); /* Move element down 30px */
+            animation: pop-in 0.8s ease forwards; 
+            fill: #ffffff; /* set the initial color */
+             transition: fill 0.3s ease; /* define the transition effect */
+            }
+
+             @keyframes pop-in {
+             from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+            to {
+             opacity: 1;
+               transform: translateY(0);
+             }
+			
+		}
+        .svg2:hover {
+         fill: #64acb1; /* set the new color on hover */
+         transition-delay: 0.1s;
+          }
+
+
+        .pop-in {
+          opacity: 0;
+           transform: translateY(30px); /* Move element down 30px */
+            animation: pop-in 0.5s ease forwards; /* Use "pop-in" animation, and keep final state */
+            }
+
+             @keyframes pop-in {
+             from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+            to {
+             opacity: 1;
+               transform: translateY(0);
+             }
+             }
+ 
+
     </style>
     
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    
   </head>
   <body>
-    <div id="caption">The only cheat hub you'll ever need.</div>
+    <div class="clock" id="clock"></div>
+
+    <div class="pop-in" id="caption">The only cheat hub you'll ever need.</div>
     <svg class="svg" width="54px" height="64px" viewBox="-133.12 -133.12 522.24 522.24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -74,15 +166,21 @@
         </g>
         </g>
       </svg>
-
-
-
-      
-    <div id="title">Baller hub</div>
+    <div class="pop-in" id="title">Baller hub</div>
     <canvas id="canvas"></canvas>
-    <div id="caption">The only cheat hub you'll ever need.</div>
     
-          
+
+    <a href="https://www.example.com">
+    <svg class="svg2"width="32" height="32" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" /></svg>
+        </g>
+        </g>
+      </svg>
+
       </div>
       
     <script>
@@ -151,18 +249,37 @@
         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
       }
 
-      // Add caption
-      var caption = document.createElement("div");
-      caption.innerText = "Test test test passion";
-      caption.style.position = "absolute";
-      caption.style.left = "230px";
-      caption.style.top = "250px";
-      caption.style.fontSize = "1.5rem";
-      caption.style.lineHeight = "1";
-      caption.style.fontWeight = "400";
-      caption.style.color = "rgba(156,163,175,var(--tw-text-opacity))";
-      caption.style.textOpacity = "1";
-      document.body.appendChild(caption);
+      function updateClock() {
+  const now = new Date();
+  const day = now.toLocaleDateString('en-US', { day: 'numeric' });
+  const month = now.toLocaleDateString('en-US', { month: 'long' });
+  const year = now.toLocaleDateString('en-US', { year: 'numeric' });
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const second = now.getSeconds();
+  const amOrPm = hour >= 12 ? 'PM' : 'AM';
+  const formattedHour = hour % 12 || 12; // convert to 12-hour format
+  const formattedMinute = minute.toString().padStart(2, '0'); // add leading zero to minutes if necessary
+  const formattedSecond = second.toString().padStart(2, '0'); // add leading zero to seconds if necessary
+  const formattedDate = ` ${day}${getOrdinalSuffix(day)} ${month} ${year} \u2022 ${formattedHour}:${formattedMinute}:${formattedSecond} ${amOrPm}`;
+  document.getElementById('clock').textContent = formattedDate;
+}
+
+function getOrdinalSuffix(day) {
+  if (day > 3 && day < 21) return 'th'; // handles 11th, 12th, 13th, 14th, ... 20th
+  switch (day % 10) {
+    case 1: return 'st'; // handles 1st, 21st, 31st
+    case 2: return 'nd'; // handles 2nd, 22nd
+    case 3: return 'rd'; // handles 3rd, 23rd
+    default: return 'th'; // handles everything else (4th, 5th, 6th, ... 20th)
+  }
+}
+
+updateClock(); // call the function
+setInterval(updateClock, 1000); // update the clock every second
+
+
+      
     </script>
   </body>
 </html>
