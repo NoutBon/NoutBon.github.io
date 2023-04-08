@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete Discord Webhook</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+      
+      body {
+        background: linear-gradient(90deg, #0c1b2d, #0e3447);
+      }
+
+      #container {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 100px auto;
+        width: 400px;
+        text-align: center;
+        font-family: 'Comfortaa', sans-serif;
+      }
+      #notification {
+  animation: fadeinout 4s ease-in-out forwards;
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+      input[type='text'] {
+        width: 80%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        outline: none;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      #notification {
+        background-color: #8bc34a;
+        color: #fff;
+        padding: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 5px;
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 16px;
+        display: none;
+        width: 200px;
+      }
+
+      #notification .title {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      #notification .subtext {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 style="margin-top: 0;">Delete Discord Webhook</h1>
+      <input type="text" id="webhook" placeholder="Enter Discord webhook URL" />
+      <br />
+      <button onclick="deleteWebhook()">Delete Webhook</button>
+    </div>
+
+    <div id="notification">
+      <div class="title">Success</div>
+      <div class="subtext">Webhook successfully deleted</div>
+    </div>
+
+    <script>
+      function deleteWebhook() {
+  var webhookUrl = document.getElementById("webhook").value;
+  var request = new XMLHttpRequest();
+  request.open("DELETE", webhookUrl, true);
+  request.onreadystatechange = function() {
+    if (request.readyState === 4 && request.status === 204) {
+      showNotification();
+      setTimeout(hideNotification, 3000);
+    }
+  };
+  request.send();
+}
+
+
+      function showNotification() {
+  notification.style.display = "block";
+  setTimeout(hideNotification, 3000); // hide the notification after 3 seconds
+}
+
+function hideNotification() {
+  var notification = document.getElementById("notification");
+  notification.style.opacity = 0;
+  setTimeout(function() {
+    notification.style.display = "none";
+  }, 1000); // fade out in 1 second
+}
+
+    </script>
+  </body>
+</html>

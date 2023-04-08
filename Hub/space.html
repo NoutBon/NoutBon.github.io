@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Space Dots</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      
+
+      #title {
+        position: absolute;
+        left: 220px;
+        top: 180px;
+        font-size: 3.75rem;
+        line-height: 1;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+      }
+
+
+
+      #caption {
+        position: absolute;
+        margin-top: 0.5rem;
+        left: 366px;
+        top: 240px;
+        transform: translateX(-50%);
+        font-size: 1.150rem;
+        line-height: 1;
+        font-weight: 400;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+        --tw-text-opacity: 1;
+        z-index: 2;
+        max-width: 18rem
+        
+      }
+      #discord-logo:hover {
+          fill: #000;
+           transition: fill 0.5s ease;
+         }
+
+
+		.svg {
+			position: absolute;
+			left: 236px;
+             top: 320px;
+			transform: translate(-50%, -50%);
+			
+		}
+    </style>
+    
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  </head>
+  <body>
+    <div id="caption">The only cheat hub you'll ever need.</div>
+    <svg class="svg" width="54px" height="64px" viewBox="-133.12 -133.12 522.24 522.24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path id="discord-logo" d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero"></path>
+        </g>
+        </g>
+      </svg>
+
+
+
+      
+    <div id="title">Baller hub</div>
+    <canvas id="canvas"></canvas>
+    <div id="caption">The only cheat hub you'll ever need.</div>
+    
+          
+      </div>
+      
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      // Set canvas dimensions
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 40; // Subtract title height
+
+      // Generate random dots
+      var dots = [];
+      var numDots = 30;
+      for (var i = 0; i < numDots; i++) {
+        dots.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: Math.random() * 0.25 - 0.125,
+          vy: Math.random() * 0.25 - 0.125,
+          color: "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")"
+        });
+      }
+
+      // Draw dots
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < numDots; i++) {
+          // Check if dot is being hovered over
+          if (distance(dots[i].x, dots[i].y, mouseX, mouseY) < 10) {
+            continue; // Skip this dot if it's being hovered over
+          }
+
+          ctx.beginPath();
+          ctx.arc(dots[i].x, dots[i].y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = dots[i].color;
+          ctx.fill();
+
+          // Move dots
+          dots[i].x += dots[i].vx;
+          dots[i].y += dots[i].vy;
+
+          // Bounce off walls
+          if (dots[i].x < 0 || dots[i].x > canvas.width) {
+            dots[i].vx *= -1;
+          }
+          if (dots[i].y < 0 || dots[i].y > canvas.height) {
+            dots[i].vy *= -1;
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+
+      /// Update mouse position
+      var mouseX = 0;
+      var mouseY = 0;
+      canvas.addEventListener("mousemove", function(event) {
+        mouseX = event.clientX;
+        mouseY = event.clientY - 40; // Subtract title height
+      });
+
+      // Calculate distance between two points
+      function distance(x1, y1, x2, y2) {
+        var xDistance = x2 - x1;
+        var yDistance = y2 - y1;
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+      }
+
+      // Add caption
+      var caption = document.createElement("div");
+      caption.innerText = "Test test test passion";
+      caption.style.position = "absolute";
+      caption.style.left = "230px";
+      caption.style.top = "250px";
+      caption.style.fontSize = "1.5rem";
+      caption.style.lineHeight = "1";
+      caption.style.fontWeight = "400";
+      caption.style.color = "rgba(156,163,175,var(--tw-text-opacity))";
+      caption.style.textOpacity = "1";
+      document.body.appendChild(caption);
+    </script>
+  </body>
+</html>
