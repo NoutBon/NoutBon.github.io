@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Space Dots</title>
+    <title>BON BON</title>
     <style>
       body {
         background-color: black;
+        color: white;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -25,7 +26,6 @@
         font-size: 3.75rem;
         line-height: 1;
         font-weight: 700;
-        color: white;
         margin: 0;
       }
 
@@ -44,28 +44,47 @@
         --tw-text-opacity: 1;
         z-index: 2;
         max-width: 18rem
+       
         
       }
-      #discord-logo:hover {
-          fill: #000;
-           transition: fill 0.5s ease;
-         }
-       
+      #github-iframe {
+    position: absolute;
+    top: 410px;
+    left: 217px;
+  }
+  
+  #white-svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
+		#black-svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: inline-block;
+		}
+ 
+    
 
 
           .clock {
             border-radius: .5rem;
              padding: 0.75rem;
              font-size: 15px;
-             color: #ffffff;
+             font-weight: 2.25rem;
             position: absolute;
-            left: 212px;
-             top: 334px;
+            left: 239px;
+             top: 345px;
              font-weight: 400;
-           opacity: 0;
-           transform: translateY(30px); /* Move element down 30px */
-            animation: pop-in 0.5s ease forwards; /* Use "pop-in" animation, and keep final state */
-            }
+             opacity: 0;
+             transform: translateY(30px); /* Move element down 30px */
+             animation: pop-in 0.5s ease forwards; /* Use "pop-in" animation, and keep final state */
+             }
 
              @keyframes pop-in {
              from {
@@ -77,15 +96,19 @@
                transform: translateY(0);
              }
           }
+          .flex { display: flex; }
 		.svg {
             
 			position: absolute;
-			left: 212px;
+			left: 215.5px;
              top: 289px;
 			transform: translate(-50%, -50%);
-            opacity: 0; 
-           transform: translateY(30px); 
+            opacity: 0; /* Start with element invisible */
+           transform: translateY(30px); /* Move element down 30px */
             animation: pop-in 0.8s ease forwards; 
+            
+            fill:white;
+             transition: fill 0.3s ease; /* define the transition effect */
             }
 
              @keyframes pop-in {
@@ -99,6 +122,12 @@
              }
 			
 		}
+    .svg:hover {
+  fill: #5865f2 !important;
+  transition-delay: 0.1s;
+}
+
+		
         .flex { display: flex; }
         .svg2 {
             
@@ -124,11 +153,40 @@
              }
 			
 		}
+    
+      
         .svg2:hover {
-         fill: #64acb1; /* set the new color on hover */
+         fill: #64acb1 !important; /* set the new color on hover */
          transition-delay: 0.1s;
           }
+          .svg3 {
+            
+			position: absolute;
+			left: 310px;
+             top: 302px;
+			transform: translate(-50%, -50%);
+            opacity: 0; /* Start with element invisible */
+           transform: translateY(30px); /* Move element down 30px */
+            animation: pop-in 0.8s ease forwards; 
+            fill: #ffffff; /* set the initial color */
+             transition: fill 0.3s ease; /* define the transition effect */
+            }
 
+             @keyframes pop-in {
+             from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+            to {
+             opacity: 1;
+               transform: translateY(0);
+             }
+			
+		}
+        .svg3:hover {
+         fill: #1ed760 !important; /* set the new color on hover */
+         transition-delay: 0.1s;
+          }
 
         .pop-in {
           opacity: 0;
@@ -146,7 +204,79 @@
                transform: translateY(0);
              }
              }
- 
+             .clockSVG {
+            
+                   position: absolute;
+                   left: 225px;
+                   top: 357px;
+                   fill: #ffffff; /* set the initial color */
+                  
+                   transform: translate(-50%, -50%);
+                   opacity: 0; /* Start with element invisible */
+                   transform: translateY(30px); /*R Move element down 30px */
+                   animation: pop-in 0.8s ease forwards; 
+                                      transition: fill 0.3s ease; /* define the transition effect */
+                  }
+      
+                   @keyframes pop-in {
+                   from {
+                  opacity: 0;
+                  transform: translateY(30px);
+              }
+                  to {
+                   opacity: 1;
+                     transform: translateY(0);
+                   }
+            
+          }
+          .emailsvg {
+            
+            position: absolute;
+            left: 355px;
+            top: 303px;
+            fill: #ffffff; /* set the initial color */
+           width: 29px;
+           height: 29px;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* Start with element invisible */
+            transform: translateY(30px); /*R Move element down 30px */
+            animation: pop-in 0.8s ease forwards; 
+                               transition: fill 0.3s ease; /* define the transition effect */
+           }
+
+            @keyframes pop-in {
+            from {
+           opacity: 0;
+           transform: translateY(30px);
+       }
+           to {
+            opacity: 1;
+              transform: translateY(0);
+            }
+     
+   }
+             .emailsvg:hover{
+             fill: #c7d2fe !important; /* set the new color on hover */
+         transition-delay: 0.1s;
+
+         }
+		
+		button {
+			background-color: white;
+			color: black;
+			padding: 10px;
+			border: none;
+			cursor: pointer;
+			border-radius: 20px;
+			position: absolute;
+			top: 250px;
+			left: 100px;
+			transform: translate(-50%, -50%);
+			width: 60px;
+			height: 60px;
+			outline: 2px solid white;
+		}
+
 
     </style>
     
@@ -154,46 +284,88 @@
     
   </head>
   <body>
-    <div class="clock" id="clock"></div>
-
-    <div class="pop-in" id="caption">The only cheat hub you'll ever need.</div>
-    <svg class="svg" width="54px" height="64px" viewBox="-133.12 -133.12 522.24 522.24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
-        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-        <g id="SVGRepo_iconCarrier">
-          <g>
-            <path id="discord-logo" d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero"></path>
-        </g>
-        </g>
-      </svg>
-    <div class="pop-in" id="title">Baller hub</div>
-    <canvas id="canvas"></canvas>
     
-
-    <a href="https://www.example.com">
-    <svg class="svg2"width="32" height="32" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
+   
+   
+    
+      <div class="clock" id="clock"></div>
+      <div class="pop-in" id="caption">A 15 year old developer from Thailand.</div>
+      <div class="pop-in" id="title">Bon Bon</div>
+      <canvas id="canvas"></canvas>
+    
+      <a href="https://github.com/NoutBon" target="_blank">
+      <svg class="svg2" id="git-svg"width="32" height="32" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
         <g id="SVGRepo_iconCarrier">
           <g>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" /></svg>
         </g>
-        </g>
+    </g>
       </svg>
+      </a>
+
+      <a href="https://discord.com/users/884037294330376242" target="_blank">
+        <svg class="svg" id="discord-svg" width="54px" height="64px" viewBox="-133.12 -133.12 522.24 522.24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g> 
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"></path>
+        </g>
+        </g>   
+</svg>
+</a>
+
+<a href="https://open.spotify.com/user/pnrytnhqpdgrk6sp6q6za" target="_blank">
+    <svg class="svg3" id="spot-svg" width="30px" height="30px" viewBox="-40.12 -10.12 533.24 522.24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000" stroke-width="0.00256" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g> 
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <g>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M 248 8 C 111.1 8 0 119.1 0 256 s 111.1 248 248 248 s 248 -111.1 248 -248 S 384.9 8 248 8 Z m 100.7 364.9 c -4.2 0 -6.8 -1.3 -10.7 -3.6 c -62.4 -37.6 -135 -39.2 -206.7 -24.5 c -3.9 1 -9 2.6 -11.9 2.6 c -9.7 0 -15.8 -7.7 -15.8 -15.8 c 0 -10.3 6.1 -15.2 13.6 -16.8 c 81.9 -18.1 165.6 -16.5 237 26.2 c 6.1 3.9 9.7 7.4 9.7 16.5 s -7.1 15.4 -15.2 15.4 Z m 26.9 -65.6 c -5.2 0 -8.7 -2.3 -12.3 -4.2 c -62.5 -37 -155.7 -51.9 -238.6 -29.4 c -4.8 1.3 -7.4 2.6 -11.9 2.6 c -10.7 0 -19.4 -8.7 -19.4 -19.4 s 5.2 -17.8 15.5 -20.7 c 27.8 -7.8 56.2 -13.6 97.8 -13.6 c 64.9 0 127.6 16.1 177 45.5 c 8.1 4.8 11.3 11 11.3 19.7 c -0.1 10.8 -8.5 19.5 -19.4 19.5 Z m 31 -76.2 c -5.2 0 -8.4 -1.3 -12.9 -3.9 c -71.2 -42.5 -198.5 -52.7 -280.9 -29.7 c -3.6 1 -8.1 2.6 -12.9 2.6 c -13.2 0 -23.3 -10.3 -23.3 -23.6 c 0 -13.6 8.4 -21.3 17.4 -23.9 c 35.2 -10.3 74.6 -15.2 117.5 -15.2 c 73 0 149.5 15.2 205.4 47.8 c 7.8 4.5 12.9 10.7 12.9 22.6 c 0 13.6 -11 23.3 -23.2 23.3 Z"></path>
+      </g>
+      </g>
+    </svg>
+  </a>
+  <a href="" target="_blank">
+  <svg class="emailsvg" id="mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+</a>
+  <svg class= "clockSVG" id="cocksNig" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+    <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"></path>
+    </svg>
+  
+   
 
       </div>
-      
+      <iframe
+  frameborder="0"
+  height="250"
+  width="429"
+ 
+  id="github-iframe"
+  src=""
+  width="100%"
+></iframe>
+<button id="colorButton" onclick="changeColor()">
+  <svg id="white-svg" width="32" height="33">
+    <image href="assets/moon.svg" width="30" height="30"/>
+  </svg>
+  <svg id="black-svg" width="32" height="33">
+    <image href="assets/sun.svg" width="30" height="30"/>
+  </svg>
+</button>
+
     <script>
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
 
-      // Set canvas dimensions
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight - 40; // Subtract title height
+      canvas.height = window.innerHeight - 40; 
 
       // Generate random dots
       var dots = [];
-      var numDots = 30;
+      var numDots = 50;
       for (var i = 0; i < numDots; i++) {
         dots.push({
           x: Math.random() * canvas.width,
@@ -208,9 +380,8 @@
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < numDots; i++) {
-          // Check if dot is being hovered over
           if (distance(dots[i].x, dots[i].y, mouseX, mouseY) < 10) {
-            continue; // Skip this dot if it's being hovered over
+            continue;
           }
 
           ctx.beginPath();
@@ -234,15 +405,14 @@
       }
       draw();
 
-      /// Update mouse position
       var mouseX = 0;
       var mouseY = 0;
       canvas.addEventListener("mousemove", function(event) {
         mouseX = event.clientX;
-        mouseY = event.clientY - 40; // Subtract title height
+        mouseY = event.clientY - 40; 
       });
 
-      // Calculate distance between two points
+    
       function distance(x1, y1, x2, y2) {
         var xDistance = x2 - x1;
         var yDistance = y2 - y1;
@@ -258,28 +428,101 @@
   const minute = now.getMinutes();
   const second = now.getSeconds();
   const amOrPm = hour >= 12 ? 'PM' : 'AM';
-  const formattedHour = hour % 12 || 12; // convert to 12-hour format
-  const formattedMinute = minute.toString().padStart(2, '0'); // add leading zero to minutes if necessary
-  const formattedSecond = second.toString().padStart(2, '0'); // add leading zero to seconds if necessary
+  const formattedHour = hour % 12 || 12; 
+  const formattedMinute = minute.toString().padStart(2, '0'); 
+  const formattedSecond = second.toString().padStart(2, '0'); 
   const formattedDate = ` ${day}${getOrdinalSuffix(day)} ${month} ${year} \u2022 ${formattedHour}:${formattedMinute}:${formattedSecond} ${amOrPm}`;
   document.getElementById('clock').textContent = formattedDate;
 }
 
 function getOrdinalSuffix(day) {
-  if (day > 3 && day < 21) return 'th'; // handles 11th, 12th, 13th, 14th, ... 20th
+  if (day > 3 && day < 21) return 'th';
   switch (day % 10) {
-    case 1: return 'st'; // handles 1st, 21st, 31st
-    case 2: return 'nd'; // handles 2nd, 22nd
-    case 3: return 'rd'; // handles 3rd, 23rd
-    default: return 'th'; // handles everything else (4th, 5th, 6th, ... 20th)
+    case 1: return 'st'; 
+    case 2: return 'nd'; 
+    case 3: return 'rd'; 
+    default: return 'th'; 
   }
 }
 
-updateClock(); // call the function
+updateClock(); 
 setInterval(updateClock, 1000); // update the clock every second
 
 
-      
+    function changeColor() {
+  var body = document.getElementsByTagName("body")[0];
+  var button = document.getElementById("colorButton");
+  var title = document.getElementById("title");
+  var clock = document.getElementById("clock");
+  var svgdis = document.getElementById("discord-svg");
+  var svg2 = document.getElementById("git-svg");
+  var svg3 = document.getElementById("spot-svg")
+  var cocksvg = document.getElementById("cocksNig")
+  var Mailbo = document.getElementById("mail")
+
+
+  if (body.style.backgroundColor == "black") {
+    body.style.backgroundColor = "white";
+    body.style.color = "black";
+    document.getElementById("white-svg").style.display = "inline-block";
+    document.getElementById("black-svg").style.display = "none";
+    button.style.backgroundColor = "white";
+    button.style.outlineColor = "black";
+    svgdis.style.fill = "black";
+    svg2.style.fill = "black";
+    svg3.style.fill = "black";
+    cocksvg.style.fill = "black"
+    Mailbo.style.fill = "black"
+
+
+
+  } else {
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+    document.getElementById("white-svg").style.display = "none";
+    document.getElementById("black-svg").style.display = "inline-block";
+    button.style.outlineColor = "black";
+    svgdis.style.fill = "white";
+    svg2.style.fill = "white";
+    svg3.style.fill = "white";
+    cocksvg.style.fill = "white"
+    Mailbo.style.fill = "white"
+
+
+
+  }
+}
+window.addEventListener('DOMContentLoaded', function() {
+  changeColor();
+});
+
+const iframe = document.getElementById("github-iframe");
+
+let prevContent = "";function loadGitHubContent() {
+  fetch("https://api.github.com/repos/NoutBon/spotify-widget/contents/card.html")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      prevContent = iframe.contentWindow.document.documentElement.outerHTML;
+      iframe.src =
+        "data:text/html;charset=utf-8;base64," +
+        encodeURIComponent(data["content"]);
+      setTimeout(function() {
+        iframe.contentWindow.document.open();
+        iframe.contentWindow.document.write(prevContent);
+        iframe.contentWindow.document.close();
+        setTimeout(function() {
+          prevContent = iframe.contentWindow.document.documentElement.outerHTML;
+        }, 3000);
+      }, 1500);
+    });
+}
+
+loadGitHubContent();
+setInterval(loadGitHubContent, 10000);
+
+
     </script>
   </body>
 </html>
